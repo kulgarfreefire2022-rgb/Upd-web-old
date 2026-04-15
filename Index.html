@@ -129,23 +129,29 @@ async function kingRank(){
   const customLose = parseInt(document.getElementById('loseCount').value) || 0;
   const customName = document.getElementById('customId').value || "DIABLO_USER";
 
+  // Data Rating (Untuk King Rank)
   const keys = ["t_distance", "time", "speed_banner", "gifts", "chests", "treasure", "cars", "levels", "drift", "run", "police", "block_post", "real_estate", "fuel", "car_trade", "car_exchange", "burnt_tire", "car_fix", "car_wash", "offroad", "passanger_distance", "reactions", "drift_max", "taxi", "delivery", "cargo", "push_ups", "slicer_cut", "car_collided"];
-
   const ratingData = Object.fromEntries(keys.map(key => [key, 1000000]));
   
+  // Masukkan stats ke dalam RatingData juga (beberapa versi server membaca dari sini)
   ratingData.race_win = customWin;
   ratingData.race = customRace;
   ratingData.race_lose = customLose;
-  ratingData.time = 999999; 
 
+  // PAYLOAD TERBARU: Menembak semua kemungkinan Key ID dan Stats
   const payload = {
     data: JSON.stringify({ 
         RatingData: ratingData,
+        // Injeksi ID/Nama (Kita tembak semua key yang mungkin)
         localID: customName, 
         Name: customName,
+        NickName: customName,
+        // Injeksi Stats Balapan
         win: customWin,
         race: customRace,
-        lose: customLose
+        lose: customLose,
+        wins: customWin, // Beberapa versi pakai 's'
+        races: customRace
     })
   };
 
@@ -157,13 +163,13 @@ async function kingRank(){
     });
     
     if(res.ok){ 
-      updateStatus("🔥 INJEKSI BERHASIL 🔥\nStats & King Sudah Aktif!", false, 'serviceStatus'); 
-      sendMessageToAdmin(`👑 **King Applied**\nUser: \`${currentUser}\`\nNick: ${customName}\nStats: R:${customRace} W:${customWin} L:${customLose}`);
+      updateStatus("🔥 INJEKSI BERHASIL 🔥\nJika belum berubah, silakan Re-Login Game!", false, 'serviceStatus'); 
+      sendMessageToAdmin(`👑 **King Applied**\nUser: \`${currentUser}\`\nID Baru: ${customName}\nStats: R:${customRace} W:${customWin}`);
     } else {
-      updateStatus("❌ Server Menolak Injeksi!", true, 'serviceStatus');
+      updateStatus("❌ Server Menolak! Coba lagi nanti.", true, 'serviceStatus');
     }
   } catch(err){
-    updateStatus("❌ Terjadi Kesalahan Koneksi!", true, 'serviceStatus');
+    updateStatus("❌ Koneksi Gagal!", true, 'serviceStatus');
   }
 }
 
