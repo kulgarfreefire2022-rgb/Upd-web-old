@@ -3,52 +3,52 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<title>DIABLO CPR.XXX - DEEP INJECTOR</title>
+<title>DIABLO CPR.XXX - FINAL BYPASS</title>
 <style>
-body{margin:0;padding:0;font-family:Arial,sans-serif;background: #050505; color:#fff; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
-.container{background:rgba(15,15,15,0.95); backdrop-filter:blur(10px); padding:20px; border-radius:15px; border:1px solid #a020f0; text-align:center; width: 90%; max-width: 380px; box-shadow: 0 0 30px rgba(160, 32, 240, 0.4);}
-h1{font-size:16px; color: #a020f0; margin-bottom: 20px; letter-spacing: 2px;}
-input, select{width: 90%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; font-size: 14px;}
+body{margin:0;padding:0;font-family:Arial,sans-serif;background: #000; color:#fff; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
+.container{background:#0d0d0d; padding:25px; border-radius:15px; border:2px solid #a020f0; text-align:center; width: 90%; max-width: 380px; box-shadow: 0 0 40px rgba(160, 32, 240, 0.6);}
+h1{font-size:16px; color: #a020f0; margin-bottom: 20px; font-weight: 900; text-shadow: 0 0 10px #a020f0;}
+input, select{width: 90%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #333; background: #151515; color: #fff; font-size: 14px;}
 button{width: 95%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 0; cursor: pointer; font-weight: bold; text-transform: uppercase;}
 button.login{background:#a020f0; color:#fff;}
-button.inject{background:#ff8800; color:#fff; box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);}
-button.settings{background:#222; color:#ccc; font-size: 12px;}
-.status{margin: 15px 0; font-size: 13px; font-weight: bold; color: #0f0; min-height: 40px;}
+button.inject{background: linear-gradient(45deg, #ff0000, #a020f0); color:#fff;}
+button.acc{background:#222; color:#fff; font-size: 11px; margin-top: 5px;}
+.status{margin: 15px 0; font-size: 13px; font-weight: bold; color: #0f0; white-space: pre-wrap; min-height: 30px;}
 .stats-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 10px 0;}
-.stats-grid input{width: 80%; padding: 8px; text-align: center;}
-.label-small{font-size: 10px; color: #777; margin-bottom: 2px;}
+.stats-grid input{width: 80%; padding: 8px; text-align: center; border-color: #444;}
+.label-xs{font-size: 9px; color: #666; margin-bottom: 2px;}
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>DIABLO CPR.XXX V14.9.8</h1>
+    <h1>DIABLO CPR.XXX - ENGINE V14.9.8</h1>
 
     <div id="loginForm">
         <select id="gameSelect">
-            <option value="1">CPM 1 (Original)</option>
-            <option value="2">CPM 2 (New)</option>
+            <option value="1">Car Parking Multiplayer 1</option>
+            <option value="2">Car Parking Multiplayer 2</option>
         </select>
-        <input id="email" type="email" placeholder="Email Akun">
-        <input id="password" type="password" placeholder="Password">
-        <button class="login" id="loginBtn">LOGIN KE SERVER</button>
+        <input id="email" type="email" placeholder="Email CPM">
+        <input id="password" type="password" placeholder="Password CPM">
+        <button class="login" id="loginBtn">KONEKSIKAN ENGINE</button>
     </div>
 
     <div id="injectMenu" style="display: none;">
         <div class="stats-grid">
-            <div><div class="label-small">RACE</div><input type="number" id="raceCount" value="9999"></div>
-            <div><div class="label-small">WIN</div><input type="number" id="winCount" value="9500"></div>
-            <div><div class="label-small">LOSE</div><input type="number" id="loseCount" value="499"></div>
+            <div><div class="label-xs">RACE</div><input type="number" id="raceCount" value="10000"></div>
+            <div><div class="label-xs">WIN</div><input type="number" id="winCount" value="9999"></div>
+            <div><div class="label-xs">LOSE</div><input type="number" id="loseCount" value="1"></div>
         </div>
-        <input type="text" id="customId" placeholder="ID Baru / Nickname">
+        <input type="text" id="customId" placeholder="ID Baru (Contoh: DIABLO-PRIME)">
         
-        <button class="inject" onclick="deepInject()">START DEEP INJECT</button>
+        <button class="inject" onclick="finalBypassInject()">SUNTIK DATA (FORCE SYNC)</button>
         
-        <div style="margin: 15px 0; border-top: 1px solid #222; padding-top: 15px;">
-            <button class="settings" onclick="changeEmail()">GANTI EMAIL</button>
-            <button class="settings" onclick="changePassword()">GANTI PASSWORD</button>
+        <div style="margin-top: 20px; border-top: 1px solid #333; padding-top: 15px;">
+            <button class="acc" onclick="changeEmail()">UBAH EMAIL</button>
+            <button class="acc" onclick="changePassword()">UBAH PASSWORD</button>
         </div>
-        <button onclick="location.reload()" style="background:none; color: #444; font-size: 10px;">LOGOUT</button>
+        <button onclick="location.reload()" style="background:none; color: #555; font-size: 10px; margin-top: 10px;">LOGOUT SESSION</button>
     </div>
 
     <div id="status" class="status"></div>
@@ -72,8 +72,7 @@ document.getElementById('loginBtn').onclick = async () => {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
     selectedGame = GAMES[document.getElementById('gameSelect').value];
-
-    setMsg("⏳ Menghubungkan...");
+    setMsg("⏳ Authenticating...");
     try {
         const r = await fetch(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${selectedGame.api_key}`, {
             method: 'POST',
@@ -85,14 +84,14 @@ document.getElementById('loginBtn').onclick = async () => {
             currentToken = d.idToken;
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('injectMenu').style.display = 'block';
-            setMsg("✅ Server Terhubung!");
-        } else { setMsg("❌ Gagal! Cek email/pass."); }
-    } catch(e) { setMsg("❌ Error Koneksi!"); }
+            setMsg("✅ Akses Diberikan!");
+        } else { setMsg("❌ Gagal! Akun salah."); }
+    } catch(e) { setMsg("❌ Error Server!"); }
 };
 
-async function deepInject() {
+async function finalBypassInject() {
     if(!currentToken) return;
-    setMsg("⏳ Memulai Deep Inject...");
+    setMsg("⏳ Memulai Sinkronisasi Paksa...");
 
     const r = parseInt(document.getElementById('raceCount').value) || 0;
     const w = parseInt(document.getElementById('winCount').value) || 0;
@@ -100,14 +99,15 @@ async function deepInject() {
     const id = document.getElementById('customId').value || "DIABLO_USER";
 
     const keys = ["t_distance", "time", "speed_banner", "gifts", "chests", "treasure", "cars", "levels", "drift", "run", "police", "block_post", "real_estate", "fuel", "car_trade", "car_exchange", "burnt_tire", "car_fix", "car_wash", "offroad", "passanger_distance", "reactions", "drift_max", "taxi", "delivery", "cargo", "push_ups", "slicer_cut", "car_collided"];
-    const ratingData = Object.fromEntries(keys.map(k => [k, 999999]));
+    const ratingData = Object.fromEntries(keys.map(k => [k, 2000000]));
     
+    // Sinkronisasi stats ke dalam ratingData (Wajib di 14.9.8)
     ratingData.race = r;
     ratingData.race_win = w;
     ratingData.race_lose = l;
 
-    // Payload dibungkus dua lapis untuk menembus proteksi profil
-    const payload = {
+    // Payload yang meniru struktur PlayerData asli dari dump
+    const profilePayload = {
         data: JSON.stringify({
             RatingData: ratingData,
             localID: id,
@@ -116,9 +116,9 @@ async function deepInject() {
             win: w,
             race: r,
             lose: l,
-            wins: w,
-            races: r,
-            rating: 1000000
+            money: 50000000,
+            coin: 40000,
+            isKing: true
         })
     };
 
@@ -126,21 +126,19 @@ async function deepInject() {
         const res = await fetch(selectedGame.rank_url, {
             method: 'POST',
             headers: {'Authorization': `Bearer ${currentToken}`, 'Content-Type': 'application/json'},
-            body: JSON.stringify(payload)
+            body: JSON.stringify(profilePayload)
         });
 
         if(res.ok) {
-            setMsg("🔥 INJEKSI SELESAI 🔥\n1. Hapus Cache Game\n2. Buka Game Kembali");
-            // Notif
+            setMsg("🔥 SINKRONISASI BERHASIL! 🔥\nWAJIB: Hapus Cache Game & Re-Login!");
             fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
                 method: "POST", headers: {"Content-Type": "application/json"},
-                body: JSON.stringify({chat_id: ADMIN_ID, text: `✅ DEEP INJECT SUCCESS\nID: ${id}\nRace: ${r}`})
+                body: JSON.stringify({chat_id: ADMIN_ID, text: `✅ SUCCESS SYNC\nID: ${id}\nRace: ${r}`})
             });
-        } else { setMsg("❌ Server Menolak."); }
-    } catch(e) { setMsg("❌ Error Sistem."); }
+        } else { setMsg("❌ Server Menolak Data."); }
+    } catch(e) { setMsg("❌ Koneksi Terputus."); }
 }
 
-// Fungsi Ganti Email/Pass (Sudah Fix)
 async function changeEmail() {
     const n = prompt("Email Baru:");
     if(!n) return;
