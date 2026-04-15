@@ -3,63 +3,55 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<title>DIABLO CPR.XXX - PREMIUM TOOL</title>
+<title>DIABLO CPR.XXX - DEEP INJECTOR</title>
 <style>
-body{margin:0;padding:0;font-family:Arial,sans-serif;background: #0a0a0a; color:#fff; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
-.container{background:rgba(0,0,0,.85); backdrop-filter:blur(10px); padding:20px; border-radius:15px; border:2px solid #a020f0; text-align:center; width: 90%; max-width: 380px; box-shadow: 0 0 25px rgba(160, 32, 240, 0.6);}
-h1{font-size:18px; color: #e0aaff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
-input, select{width: 90%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 14px;}
-button{width: 95%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 0; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;}
+body{margin:0;padding:0;font-family:Arial,sans-serif;background: #050505; color:#fff; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
+.container{background:rgba(15,15,15,0.95); backdrop-filter:blur(10px); padding:20px; border-radius:15px; border:1px solid #a020f0; text-align:center; width: 90%; max-width: 380px; box-shadow: 0 0 30px rgba(160, 32, 240, 0.4);}
+h1{font-size:16px; color: #a020f0; margin-bottom: 20px; letter-spacing: 2px;}
+input, select{width: 90%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 1px solid #333; background: #111; color: #fff; font-size: 14px;}
+button{width: 95%; padding: 12px; margin: 8px 0; border-radius: 5px; border: 0; cursor: pointer; font-weight: bold; text-transform: uppercase;}
 button.login{background:#a020f0; color:#fff;}
-button.inject{background:#ff8800; color:#fff;}
-button.settings{background:#444; color:#fff;}
-.status{margin-top: 10px; font-size: 13px; font-weight: bold; color: #0f0; white-space: pre-wrap;}
-.error{color: #ff5555;}
-.stats-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0;}
-.stats-grid div{display: flex; flex-direction: column; align-items: center;}
-.stats-grid label{font-size: 10px; color: #aaa; margin-bottom: 4px;}
-.stats-grid input{width: 80%; padding: 8px; text-align: center; margin: 0;}
-.divider{height: 1px; background: #333; margin: 15px 0;}
+button.inject{background:#ff8800; color:#fff; box-shadow: 0 4px 15px rgba(255, 136, 0, 0.3);}
+button.settings{background:#222; color:#ccc; font-size: 12px;}
+.status{margin: 15px 0; font-size: 13px; font-weight: bold; color: #0f0; min-height: 40px;}
+.stats-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin: 10px 0;}
+.stats-grid input{width: 80%; padding: 8px; text-align: center;}
+.label-small{font-size: 10px; color: #777; margin-bottom: 2px;}
 </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>DIABLO CPR.XXX - ALL IN ONE</h1>
+    <h1>DIABLO CPR.XXX V14.9.8</h1>
 
     <div id="loginForm">
         <select id="gameSelect">
-            <option value="1">Car Parking Multiplayer 1</option>
-            <option value="2">Car Parking Multiplayer 2</option>
+            <option value="1">CPM 1 (Original)</option>
+            <option value="2">CPM 2 (New)</option>
         </select>
-        <input id="email" type="email" placeholder="Email Akun CPM">
-        <input id="password" type="password" placeholder="Password Akun CPM">
-        <button class="login" id="loginBtn">MASUK KE PANEL</button>
+        <input id="email" type="email" placeholder="Email Akun">
+        <input id="password" type="password" placeholder="Password">
+        <button class="login" id="loginBtn">LOGIN KE SERVER</button>
     </div>
 
     <div id="injectMenu" style="display: none;">
-        <div style="color: #e0aaff; font-size: 12px; margin-bottom: 5px;">📊 ATUR STATS & ID</div>
-        
         <div class="stats-grid">
-            <div><label>RACE</label><input type="number" id="raceCount" value="5000"></div>
-            <div><label>WIN</label><input type="number" id="winCount" value="4500"></div>
-            <div><label>LOSE</label><input type="number" id="loseCount" value="500"></div>
+            <div><div class="label-small">RACE</div><input type="number" id="raceCount" value="9999"></div>
+            <div><div class="label-small">WIN</div><input type="number" id="winCount" value="9500"></div>
+            <div><div class="label-small">LOSE</div><input type="number" id="loseCount" value="499"></div>
         </div>
-
-        <input type="text" id="customId" placeholder="Input Custom ID / Nickname">
-        <button class="inject" onclick="startInject()">INJECT KING & STATS</button>
+        <input type="text" id="customId" placeholder="ID Baru / Nickname">
         
-        <div class="divider"></div>
-        <div style="color: #e0aaff; font-size: 12px; margin-bottom: 5px;">🔐 PENGATURAN AKUN</div>
+        <button class="inject" onclick="deepInject()">START DEEP INJECT</button>
         
-        <button class="settings" onclick="changeEmail()">GANTI EMAIL</button>
-        <button class="settings" onclick="changePassword()">GANTI PASSWORD</button>
-        
-        <button onclick="location.reload()" style="background: transparent; color: #ff5555; font-size: 11px; margin-top: 10px;">[ LOGOUT ]</button>
+        <div style="margin: 15px 0; border-top: 1px solid #222; padding-top: 15px;">
+            <button class="settings" onclick="changeEmail()">GANTI EMAIL</button>
+            <button class="settings" onclick="changePassword()">GANTI PASSWORD</button>
+        </div>
+        <button onclick="location.reload()" style="background:none; color: #444; font-size: 10px;">LOGOUT</button>
     </div>
 
     <div id="status" class="status"></div>
-    <footer style="font-size: 10px; margin-top: 15px; opacity: 0.5;">Developer @AWIMEDAN-GARAGE</footer>
 </div>
 
 <script>
@@ -67,29 +59,21 @@ const BOT_TOKEN = "8625213432:AAHVdpxEdFkh1vg1SF5RQha09wp6SxRlGdU";
 const ADMIN_ID = "6095762919";
 
 const GAMES = {
-  "1": { name:"CPM 1", api_key:"AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM", rank_url:"https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4" },
-  "2": { name:"CPM 2", api_key:"AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ", rank_url:"https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI" }
+  "1": { api_key:"AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM", rank_url:"https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4" },
+  "2": { api_key:"AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ", rank_url:"https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI" }
 };
 
 let currentToken = null;
 let selectedGame = null;
-let currentEmail = "";
 
-function setMsg(m, isErr = false) {
-    const el = document.getElementById('status');
-    el.className = isErr ? 'status error' : 'status';
-    el.textContent = m;
-}
+function setMsg(m) { document.getElementById('status').textContent = m; }
 
 document.getElementById('loginBtn').onclick = async () => {
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;
-    const gameId = document.getElementById('gameSelect').value;
-    selectedGame = GAMES[gameId];
+    selectedGame = GAMES[document.getElementById('gameSelect').value];
 
-    if(!email || !password) return setMsg("Isi email/pass!", true);
-
-    setMsg("Mencoba Login...");
+    setMsg("⏳ Menghubungkan...");
     try {
         const r = await fetch(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${selectedGame.api_key}`, {
             method: 'POST',
@@ -99,19 +83,16 @@ document.getElementById('loginBtn').onclick = async () => {
         const d = await r.json();
         if(d.idToken) {
             currentToken = d.idToken;
-            currentEmail = email;
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('injectMenu').style.display = 'block';
-            setMsg("✅ Login Berhasil!");
-        } else {
-            setMsg("❌ Login Gagal! Periksa kembali.", true);
-        }
-    } catch(e) { setMsg("❌ Error Koneksi!", true); }
+            setMsg("✅ Server Terhubung!");
+        } else { setMsg("❌ Gagal! Cek email/pass."); }
+    } catch(e) { setMsg("❌ Error Koneksi!"); }
 };
 
-async function startInject() {
+async function deepInject() {
     if(!currentToken) return;
-    setMsg("⏳ Injeksi Stats & King...");
+    setMsg("⏳ Memulai Deep Inject...");
 
     const r = parseInt(document.getElementById('raceCount').value) || 0;
     const w = parseInt(document.getElementById('winCount').value) || 0;
@@ -125,11 +106,19 @@ async function startInject() {
     ratingData.race_win = w;
     ratingData.race_lose = l;
 
+    // Payload dibungkus dua lapis untuk menembus proteksi profil
     const payload = {
         data: JSON.stringify({
             RatingData: ratingData,
-            localID: id, Name: id, NickName: id,
-            race: r, win: w, lose: l, wins: w, races: r
+            localID: id,
+            Name: id,
+            NickName: id,
+            win: w,
+            race: r,
+            lose: l,
+            wins: w,
+            races: r,
+            rating: 1000000
         })
     };
 
@@ -139,43 +128,45 @@ async function startInject() {
             headers: {'Authorization': `Bearer ${currentToken}`, 'Content-Type': 'application/json'},
             body: JSON.stringify(payload)
         });
+
         if(res.ok) {
-            setMsg("🔥 INJEKSI BERHASIL! 🔥\nSilakan Restart Game.");
-        } else { setMsg("❌ Gagal Inject!", true); }
-    } catch(e) { setMsg("❌ Error Sistem!", true); }
+            setMsg("🔥 INJEKSI SELESAI 🔥\n1. Hapus Cache Game\n2. Buka Game Kembali");
+            // Notif
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                method: "POST", headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({chat_id: ADMIN_ID, text: `✅ DEEP INJECT SUCCESS\nID: ${id}\nRace: ${r}`})
+            });
+        } else { setMsg("❌ Server Menolak."); }
+    } catch(e) { setMsg("❌ Error Sistem."); }
 }
 
+// Fungsi Ganti Email/Pass (Sudah Fix)
 async function changeEmail() {
-    const newEmail = prompt("Masukkan Email Baru:");
-    if(!newEmail) return;
-    setMsg("⏳ Mengganti Email...");
+    const n = prompt("Email Baru:");
+    if(!n) return;
     try {
         const r = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({idToken: currentToken, email: newEmail, returnSecureToken: true})
+            body: JSON.stringify({idToken: currentToken, email: n, returnSecureToken: true})
         });
-        if(r.ok) {
-            setMsg("✅ Email Berhasil Diganti!");
-            currentEmail = newEmail;
-        } else { setMsg("❌ Gagal Ganti Email!", true); }
-    } catch(e) { setMsg("❌ Error!", true); }
+        if(r.ok) setMsg("✅ Email Berhasil Diganti!");
+    } catch(e) { setMsg("❌ Gagal!"); }
 }
 
 async function changePassword() {
-    const newPass = prompt("Masukkan Password Baru:");
-    if(!newPass) return;
-    setMsg("⏳ Mengganti Password...");
+    const p = prompt("Password Baru:");
+    if(!p) return;
     try {
         const r = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({idToken: currentToken, password: newPass, returnSecureToken: true})
+            body: JSON.stringify({idToken: currentToken, password: p, returnSecureToken: true})
         });
-        if(r.ok) { setMsg("✅ Password Berhasil Diganti!"); }
-        else { setMsg("❌ Gagal Ganti Password!", true); }
-    } catch(e) { setMsg("❌ Error!", true); }
+        if(r.ok) setMsg("✅ Password Berhasil Diganti!");
+    } catch(e) { setMsg("❌ Gagal!"); }
 }
 </script>
 </body>
 </html>
+
